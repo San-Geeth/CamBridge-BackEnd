@@ -5,6 +5,8 @@ import com.example.cambridge.repo.student.StudentRepo;
 import com.example.cambridge.service.student.StudentService;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class StudentServiceImpl implements StudentService {
     private StudentRepo studentRepo;
@@ -17,4 +19,11 @@ public class StudentServiceImpl implements StudentService {
     public Student saveStudent(Student student) {
         return studentRepo.save(student);
     }
+
+    @Override
+    public Student getStudentById(Integer id) {
+        return studentRepo.getStudentById(id);
+    }
+
+
 }

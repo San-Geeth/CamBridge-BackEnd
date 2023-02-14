@@ -5,6 +5,6 @@ public class ApplicationConstants {
 
 
     //ERRORS
-    public static final String LOGIN_FAIL = "login failed. check credentials";
+    public static final String STUDENT_NOT_FOUND = "Student not found!";
 
 }
