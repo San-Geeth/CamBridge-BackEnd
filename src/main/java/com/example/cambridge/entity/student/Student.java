@@ -15,6 +15,7 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    private String indexNo;
     private String firstName;
     private String lastName;
     private Integer grade;
@@ -67,5 +68,13 @@ public class Student {
 
     public void setContact(String contact) {
         this.contact = contact;
+    }
+
+    public String getIndexNo() {
+        return indexNo;
+    }
+
+    public void setIndexNo(String indexNo) {
+        this.indexNo = indexNo;
     }
 }
