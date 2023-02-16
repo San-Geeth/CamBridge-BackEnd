@@ -1,6 +1,6 @@
 package com.example.cambridge.entity.classes;
 
-import com.example.cambridge.entity.api.ClazApi;
+import com.example.cambridge.api.classes.ClassApi;
 import com.example.cambridge.entity.staff.Teacher;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
@@ -15,7 +15,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "class")
-public class Claz implements ClazApi {
+public class Claz implements ClassApi {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

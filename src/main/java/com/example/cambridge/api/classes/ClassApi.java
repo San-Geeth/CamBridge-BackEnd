@@ -1,10 +1,10 @@
-package com.example.cambridge.entity.api;
+package com.example.cambridge.api.classes;
 
 import com.example.cambridge.entity.staff.Teacher;
 
 import java.util.Date;
 
-public interface ClazApi {
+public interface ClassApi {
     public Integer getId();
 
     public void setId(Integer id);
