@@ -7,6 +7,8 @@ import com.example.cambridge.service.staff.StaffService;
 import com.example.cambridge.utility.CommonMethods;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 @Service
 public class StaffServiceImpl implements StaffService {
 
@@ -19,6 +21,7 @@ public class StaffServiceImpl implements StaffService {
     @Override
     public Teacher saveTeacher(Teacher teacher) {
         Teacher teacherObj =  teacherRepo.save(teacher);
+        teacher.setSavedAt(new Date());
         String staffId = Constants.TEACHER_ID_PREFIX + CommonMethods.formatNumber(teacherObj.getId());
         teacherRepo.updateIndex(staffId, teacherObj.getId());
         return teacherObj;
