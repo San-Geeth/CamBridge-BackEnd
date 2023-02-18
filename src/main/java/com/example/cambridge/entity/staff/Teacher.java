@@ -1,7 +1,7 @@
 package com.example.cambridge.entity.staff;
 
-import com.example.cambridge.api.staff.TeacherApi;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,10 +10,11 @@ import java.util.Date;
 
 @Entity
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "teacher")
-public class Teacher implements TeacherApi {
+public class Teacher {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

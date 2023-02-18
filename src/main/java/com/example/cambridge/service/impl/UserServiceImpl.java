@@ -25,8 +25,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User saveUser(User user) {
-        UserType userType = userTypeRepo.getUserTypeById(user.getUserType().getType());
-        user.setUserType(userType);
         return userRepo.save(user);
     }
 

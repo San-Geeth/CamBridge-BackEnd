@@ -1,5 +1,7 @@
 package com.example.cambridge.service.impl;
 
+import com.example.cambridge.config.JwtAuthFilter;
+import com.example.cambridge.config.JwtService;
 import com.example.cambridge.constants.ApplicationConstants;
 import com.example.cambridge.entity.student.Constants;
 import com.example.cambridge.entity.student.Student;
@@ -7,16 +9,16 @@ import com.example.cambridge.repo.student.StudentRepo;
 import com.example.cambridge.service.student.StudentService;
 import com.example.cambridge.utility.CommonMethods;
 import com.example.cambridge.utility.ResponseWrapper;
+import io.jsonwebtoken.Claims;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @Service
 public class StudentServiceImpl implements StudentService {
     private StudentRepo studentRepo;
+    private JwtService jwtService;
 
     public StudentServiceImpl(StudentRepo studentRepo) {
         this.studentRepo = studentRepo;
