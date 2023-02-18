@@ -48,7 +48,17 @@ public class StudentServiceImpl implements StudentService {
         if (!studs.isEmpty()) {
             return ResponseEntity.ok().body(new ResponseWrapper<>().responseOk(studs));
         } else {
-            return ResponseEntity.ok().body(new ResponseWrapper<>().responseOk(ApplicationConstants.STUDENT_NOT_FOUND));
+            return ResponseEntity.ok().body(new ResponseWrapper<>().responseFail(ApplicationConstants.STUDENT_NOT_FOUND));
+        }
+    }
+
+    @Override
+    public ResponseEntity getStudentByIndex(String index) {
+        Student student = studentRepo.getStudentByIndex(index);
+        if (student != null) {
+            return ResponseEntity.ok().body(new ResponseWrapper<>().responseOk(student));
+        } else {
+            return ResponseEntity.ok().body(new ResponseWrapper<>().responseFail(ApplicationConstants.STUDENT_NOT_FOUND));
         }
     }
 

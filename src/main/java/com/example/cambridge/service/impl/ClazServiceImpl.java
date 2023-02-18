@@ -1,21 +1,21 @@
 package com.example.cambridge.service.impl;
 
-import com.example.cambridge.constants.ApplicationConstants;
 import com.example.cambridge.entity.classes.Claz;
 import com.example.cambridge.repo.classes.ClazRepo;
 import com.example.cambridge.service.classes.ClazService;
 import com.example.cambridge.utility.ResponseWrapper;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 @Service
 public class ClazServiceImpl implements ClazService {
+
+    private Logger logger = LogManager.getLogger(ClazServiceImpl.class);
 
     private ClazRepo clazRepo;
 
@@ -24,8 +24,10 @@ public class ClazServiceImpl implements ClazService {
     }
 
     @Override
-    public Claz saveClass(Claz claz) throws ParseException {
+    public ResponseEntity saveClass(Claz claz) throws ParseException {
         claz.setCreatedAt(new Date());
-        return clazRepo.save(claz);
+        clazRepo.save(claz);
+        logger.info("New class created : " + claz);
+        return ResponseEntity.ok().body(new ResponseWrapper<>().responseOk(claz));
     }
 }

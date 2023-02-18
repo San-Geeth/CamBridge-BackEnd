@@ -49,12 +49,13 @@ public class AuthService {
                         request.getPassword()
                 )
         );
-        String userForBidden = "User ForBidden";
+        User user1 = userRepo.getByUserName(request.getUserName());
         var user = userRepo.findByUserName(request.getUserName())
                 .orElseThrow(() -> new UsernameNotFoundException("User Not Found"));
         var jwtToken = jwtService.generateToken(user);
         AuthenticationResponse returnResponse = AuthenticationResponse.builder()
                 .token(jwtToken)
+                .user(user1)
                 .build();
 
         if (user == null) {

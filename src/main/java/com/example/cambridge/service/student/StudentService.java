@@ -9,4 +9,5 @@ public interface StudentService {
     ResponseEntity getStudentById(Integer id);
 
     ResponseEntity getStudentsByGrade(Integer grade);
+    ResponseEntity getStudentByIndex(String index);
 }

@@ -20,4 +20,7 @@ public interface StudentRepo extends JpaRepository<Student, Integer> {
     @Transactional
     @Query("UPDATE Student s SET s.indexNo=:index WHERE s.id=:id")
     void updateIndex(String index, Integer id);
+
+    @Query("SELECT s FROM Student s WHERE s.indexNo=:index")
+    Student getStudentByIndex(String index);
 }

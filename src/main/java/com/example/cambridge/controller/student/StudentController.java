@@ -31,4 +31,10 @@ public class StudentController {
         return studentService.getStudentsByGrade(grade);
     }
 
+    @GetMapping("/get-by-index/student/{index}")
+    public ResponseEntity getStudentByIndex(@PathVariable String index) {
+        return studentService.getStudentByIndex(index);
+    }
+
+
 }

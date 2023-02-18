@@ -11,7 +11,7 @@ import java.text.ParseException;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/class")
+@RequestMapping("/api/v1/class")
 public class ClazController {
 
     private ClazService clazService;
@@ -21,7 +21,7 @@ public class ClazController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<Claz> addNewClass(@RequestBody Claz claz) throws ParseException {
-        return new ResponseEntity<Claz>(clazService.saveClass(claz), HttpStatus.CREATED);
+    public ResponseEntity addNewClass(@RequestBody Claz claz) throws ParseException {
+        return clazService.saveClass(claz);
     }
 }

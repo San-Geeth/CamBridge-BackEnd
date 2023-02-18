@@ -1,7 +1,8 @@
 package com.example.cambridge.service.staff;
 
 import com.example.cambridge.entity.staff.Teacher;
+import org.springframework.http.ResponseEntity;
 
 public interface StaffService {
-    Teacher saveTeacher(Teacher teacher);
+    ResponseEntity saveTeacher(Teacher teacher);
 }

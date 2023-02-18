@@ -18,7 +18,7 @@ public class StaffController {
     }
 
     @PostMapping("/save/teacher")
-    public ResponseEntity<Teacher> saveUser(@RequestBody Teacher teacher){
-        return new ResponseEntity<Teacher>(staffService.saveTeacher(teacher), HttpStatus.CREATED);
+    public ResponseEntity saveUser(@RequestBody Teacher teacher){
+        return staffService.saveTeacher(teacher);
     }
 }
