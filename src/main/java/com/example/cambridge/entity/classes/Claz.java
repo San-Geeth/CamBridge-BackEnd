@@ -37,4 +37,13 @@ public class Claz implements ClassApi {
     private String startTime;
     @Transient
     private String endTime;
+
+    public Claz(Integer id, String subject) {
+        this.id = id;
+        this.subject = subject;
+    }
+
+    public Claz(Integer id) {
+        this.id = id;
+    }
 }

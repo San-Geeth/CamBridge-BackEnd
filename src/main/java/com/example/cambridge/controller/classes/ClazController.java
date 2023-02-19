@@ -24,4 +24,9 @@ public class ClazController {
     public ResponseEntity addNewClass(@RequestBody Claz claz) throws ParseException {
         return clazService.saveClass(claz);
     }
+
+    @GetMapping("/get-all-students/class/{classId}")
+    public ResponseEntity getAllStudentsOfClaz(@PathVariable Integer classId) {
+        return clazService.getAllStudentsOfClass(classId);
+    }
 }
