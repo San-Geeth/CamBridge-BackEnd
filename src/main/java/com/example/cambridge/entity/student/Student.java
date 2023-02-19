@@ -27,6 +27,8 @@ public class Student implements StudentApi {
     private Integer grade;
     private String parent;
     private String contact;
+    private String address;
+    private String image;
     @Transient
     private List<Integer> clazList;
 
@@ -34,4 +36,11 @@ public class Student implements StudentApi {
         this.id = id;
     }
 
+    public Student(String firstName, String lastName, Integer grade, String parent, String contact) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.grade = grade;
+        this.parent = parent;
+        this.contact = contact;
+    }
 }

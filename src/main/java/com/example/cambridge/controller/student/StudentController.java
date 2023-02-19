@@ -5,6 +5,9 @@ import com.example.cambridge.service.student.StudentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
 
 @CrossOrigin
 @RestController
@@ -17,8 +20,9 @@ public class StudentController {
         this.studentService = userService;
     }
     @PostMapping("/save")
-    public ResponseEntity<Student> saveUser(@RequestBody Student student){
-        return new ResponseEntity<Student>(studentService.saveStudent(student), HttpStatus.CREATED);
+    public ResponseEntity<Student> saveUser(String firstName, String lastName, String grade,
+                                            String parent, String contact, MultipartFile image){
+        return new ResponseEntity<Student>(studentService.saveStudent(firstName, lastName, grade, parent, contact, image), HttpStatus.CREATED);
     }
 
     @GetMapping("/get/student/{id}")

@@ -42,7 +42,7 @@ public class ClazServiceImpl implements ClazService {
     public ResponseEntity getAllStudentsOfClass(Integer classId) {
         Optional<Claz> claz = clazRepo.findById(classId);
         if (!claz.isPresent()) {
-            return ResponseEntity.status(HttpStatus.FORBIDDEN)
+            return ResponseEntity.status(HttpStatus.CONFLICT)
                     .body(new ResponseWrapper<>()
                             .responseFail(Constants.NO_CLASS_FOUND));
         }
