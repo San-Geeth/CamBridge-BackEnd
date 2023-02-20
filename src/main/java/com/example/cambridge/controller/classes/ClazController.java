@@ -1,5 +1,6 @@
 package com.example.cambridge.controller.classes;
 
+import com.example.cambridge.entity.classes.AssignStudentsRequest;
 import com.example.cambridge.entity.classes.Claz;
 import com.example.cambridge.entity.staff.Teacher;
 import com.example.cambridge.service.classes.ClazService;
@@ -28,5 +29,10 @@ public class ClazController {
     @GetMapping("/get-all-students/class/{classId}")
     public ResponseEntity getAllStudentsOfClaz(@PathVariable Integer classId) {
         return clazService.getAllStudentsOfClass(classId);
+    }
+
+    @PostMapping("/assign-students/class/{classId}")
+    public ResponseEntity assignStudentsToClass(@PathVariable Integer classId, @RequestBody AssignStudentsRequest request) {
+        return clazService.assignStudentsToClass(request, classId);
     }
 }

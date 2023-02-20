@@ -23,4 +23,7 @@ public interface StudentRepo extends JpaRepository<Student, Integer> {
 
     @Query("SELECT s FROM Student s WHERE s.indexNo=:index")
     Student getStudentByIndex(String index);
+
+    @Query("SELECT new Student(s.id) FROM Student s WHERE s.id in (:ids)")
+    List<Student> getAllStudentsByIds(List<Integer> ids);
 }
