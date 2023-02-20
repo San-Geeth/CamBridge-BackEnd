@@ -9,4 +9,7 @@ import java.util.List;
 public interface ClazRepo extends JpaRepository<Claz, Integer> {
     @Query("SELECT new Claz(c.id, c.subject) FROM Claz c WHERE c.id in (:ids)")
     List<Claz> getClassesByIds(List<Integer> ids);
+
+    @Query("SELECT new Claz(c.id, c.subject, c.teacher.firstName, c.teacher.lastName) FROM Claz c")
+    List<Claz> getAllClasses();
 }

@@ -77,4 +77,11 @@ public class ClazServiceImpl implements ClazService {
 
         return ResponseEntity.ok().body(new ResponseWrapper<>().responseOk(newStudentList));
     }
+
+    public ResponseEntity getAllClasses() {
+        List<Claz> classes;
+        classes = clazRepo.getAllClasses();
+        return ResponseEntity.ok().body(new ResponseWrapper<>().responseOk(classes));
+
+    }
 }

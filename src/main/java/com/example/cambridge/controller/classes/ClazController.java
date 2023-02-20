@@ -35,4 +35,9 @@ public class ClazController {
     public ResponseEntity assignStudentsToClass(@PathVariable Integer classId, @RequestBody AssignStudentsRequest request) {
         return clazService.assignStudentsToClass(request, classId);
     }
+
+    @GetMapping("/get-list/all")
+    public ResponseEntity getAllClasses() {
+        return clazService.getAllClasses();
+    }
 }

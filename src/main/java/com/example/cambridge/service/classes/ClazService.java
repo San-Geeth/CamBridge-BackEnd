@@ -13,4 +13,6 @@ public interface ClazService {
     ResponseEntity getAllStudentsOfClass(Integer classId);
 
     ResponseEntity assignStudentsToClass(AssignStudentsRequest request, Integer classId);
+
+    ResponseEntity getAllClasses();
 }
