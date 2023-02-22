@@ -1,8 +1,6 @@
 package com.example.cambridge.entity.student;
 
 import com.example.cambridge.api.student.StudentApi;
-import com.example.cambridge.entity.classes.Claz;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,11 +22,14 @@ public class Student implements StudentApi {
     private String indexNo;
     private String firstName;
     private String lastName;
-    private Integer grade;
     private String parent;
+    private Integer grade;
+    private String employmentStatus;
     private String contact;
+    private String whatsapp;
     private String address;
     private String image;
+    private String email;
     @Transient
     private List<Integer> clazList;
 
