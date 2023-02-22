@@ -23,8 +23,8 @@ public class Student implements StudentApi {
     private String firstName;
     private String lastName;
     private String parent;
-    private Integer grade;
     private String employmentStatus;
+    private Integer grade;
     private String contact;
     private String whatsapp;
     private String address;

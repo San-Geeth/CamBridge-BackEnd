@@ -20,9 +20,8 @@ public class StudentController {
         this.studentService = userService;
     }
     @PostMapping("/save")
-    public ResponseEntity<Student> saveUser(String firstName, String lastName, String grade,
-                                            String parent, String contact, MultipartFile image){
-        return new ResponseEntity<Student>(studentService.saveStudent(firstName, lastName, grade, parent, contact, image), HttpStatus.CREATED);
+    public ResponseEntity saveStudent(@RequestBody Student student){
+        return studentService.saveStudent(student);
     }
 
     @GetMapping("/get/student/{id}")
