@@ -8,7 +8,7 @@ import java.text.ParseException;
 import java.util.List;
 
 public interface ClazService {
-    ResponseEntity saveClass(Claz claz) throws ParseException;
+    ResponseEntity saveClass(Claz claz);
 
     ResponseEntity getAllStudentsOfClass(Integer classId);
 

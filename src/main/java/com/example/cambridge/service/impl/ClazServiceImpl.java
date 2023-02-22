@@ -39,7 +39,7 @@ public class ClazServiceImpl implements ClazService {
     }
 
     @Override
-    public ResponseEntity saveClass(Claz claz) throws ParseException {
+    public ResponseEntity saveClass(Claz claz)  {
         claz.setCreatedAt(new Date());
         clazRepo.save(claz);
         logger.info("New class created : " + claz);

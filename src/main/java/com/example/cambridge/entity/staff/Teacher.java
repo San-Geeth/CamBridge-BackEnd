@@ -1,5 +1,6 @@
 package com.example.cambridge.entity.staff;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,6 +15,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "teacher")
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Teacher {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
