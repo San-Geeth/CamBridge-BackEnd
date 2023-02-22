@@ -28,4 +28,9 @@ public class StudentCourses {
     @OneToOne
     @JoinColumn(name = "courseId")
     private Course course;
+
+    public StudentCourses(Student student, Course course) {
+        this.student = student;
+        this.course = course;
+    }
 }

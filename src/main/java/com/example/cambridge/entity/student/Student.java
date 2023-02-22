@@ -32,6 +32,8 @@ public class Student implements StudentApi {
     private String email;
     @Transient
     private List<Integer> clazList;
+    @Transient
+    private List<Integer> courseList;
 
     public Student(Integer id) {
         this.id = id;

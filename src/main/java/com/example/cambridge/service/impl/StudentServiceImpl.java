@@ -3,11 +3,15 @@ package com.example.cambridge.service.impl;
 import com.example.cambridge.config.JwtService;
 import com.example.cambridge.constants.ApplicationConstants;
 import com.example.cambridge.entity.classes.Claz;
+import com.example.cambridge.entity.classes.Course;
 import com.example.cambridge.entity.student.Constants;
 import com.example.cambridge.entity.student.Student;
 import com.example.cambridge.entity.student.StudentClasses;
+import com.example.cambridge.entity.student.StudentCourses;
 import com.example.cambridge.repo.classes.ClazRepo;
+import com.example.cambridge.repo.classes.CourseRepo;
 import com.example.cambridge.repo.student.StudentClassesRepo;
+import com.example.cambridge.repo.student.StudentCoursesRepo;
 import com.example.cambridge.repo.student.StudentRepo;
 import com.example.cambridge.service.student.StudentService;
 import com.example.cambridge.utility.CommonMethods;
@@ -31,12 +35,17 @@ public class StudentServiceImpl implements StudentService {
     private final StudentRepo studentRepo;
     private final ClazRepo clazRepo;
     private final StudentClassesRepo stdClassRepo;
+    private final CourseRepo courseRepo;
+    private final StudentCoursesRepo studentCoursesRepo;
     private final JwtService jwtService;
 
-    public StudentServiceImpl(StudentRepo studentRepo, ClazRepo clazRepo, StudentClassesRepo stdClassRepo, JwtService jwtService) {
+    public StudentServiceImpl(StudentRepo studentRepo, ClazRepo clazRepo, StudentClassesRepo stdClassRepo,
+                              CourseRepo courseRepo, StudentCoursesRepo studentCoursesRepo, JwtService jwtService) {
         this.studentRepo = studentRepo;
         this.clazRepo = clazRepo;
         this.stdClassRepo = stdClassRepo;
+        this.courseRepo = courseRepo;
+        this.studentCoursesRepo = studentCoursesRepo;
         this.jwtService = jwtService;
     }
 
@@ -57,6 +66,19 @@ public class StudentServiceImpl implements StudentService {
             }
             System.out.println("Class List Is" + classList);
         }
+
+        if (!student.getCourseList().isEmpty()) {
+            List<Course> courseList = courseRepo.getCoursesByIds(student.getCourseList());
+            if (!courseList.isEmpty()) {
+                for (Course entity : courseList)
+                    studentCoursesRepo.save(new StudentCourses(
+                            new Student(stud.getId()),
+                            new Course(entity.getId())
+                    ));
+            }
+            System.out.println("Class List Is" + courseList);
+        }
+
         Student returnResponse = studentRepo.getStudentById(stud.getId());
         return ResponseEntity.ok().body(new ResponseWrapper<>().responseOk(returnResponse));
     }
