@@ -16,11 +16,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.sql.SQLException;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class ClazServiceImpl implements ClazService {
@@ -40,10 +38,15 @@ public class ClazServiceImpl implements ClazService {
 
     @Override
     public ResponseEntity saveClass(Claz claz)  {
-        claz.setCreatedAt(new Date());
-        clazRepo.save(claz);
-        logger.info("New class created : " + claz);
-        return ResponseEntity.ok().body(new ResponseWrapper<>().responseOk(claz));
+        try {
+            claz.setCreatedAt(new Date());
+            clazRepo.save(claz);
+            logger.info("New class created : " + claz);
+            return ResponseEntity.ok().body(new ResponseWrapper<>().responseOk(claz));
+        } catch (Exception e) {
+            logger.warn(e.getMessage());
+            return ResponseEntity.ok().body(new ResponseWrapper<>().responseFail(Constants.ERROR_SAVING));
+        }
     }
 
     public ResponseEntity getAllStudentsOfClass(Integer classId) {
