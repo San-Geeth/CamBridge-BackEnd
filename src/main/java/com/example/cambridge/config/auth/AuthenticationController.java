@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @createdOn 2/18/2023
  */
 @RestController
-@RequestMapping("/api/v1/auth")
+@RequestMapping("/api/v1")
 @RequiredArgsConstructor
 public class AuthenticationController {
 

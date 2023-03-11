@@ -4,6 +4,7 @@ import com.example.cambridge.entity.student.Student;
 import com.example.cambridge.service.student.StudentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -19,6 +20,8 @@ public class StudentController {
     public StudentController(StudentService userService) {
         this.studentService = userService;
     }
+
+
     @PostMapping("/save")
     public ResponseEntity saveStudent(@RequestBody Student student){
         return studentService.saveStudent(student);

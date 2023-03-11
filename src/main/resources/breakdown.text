@@ -1,0 +1,41 @@
+Students
+========
+functionalities
+----------------
+add
+view
+update
+delete
+
+fields
+----------------
+Student ID - custom generation String
+Job status / Student - boolean student
+If student Grade - if student -> grade
+Contact Number - String
+WhatsApp number - String
+Address - String
+Email - String
+
+Subjects
+========
+functionalities
+----------------
+add
+edit
+update
+delete
+
+fields
+======
+Id - Auto increment Integer
+Subject - String
+Medium - String
+
+Courses
+=======
+
+
+
+
+

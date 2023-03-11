@@ -8,12 +8,16 @@ import com.example.cambridge.repo.user.UserRepo;
 import com.example.cambridge.utility.ResponseWrapper;
 import lombok.RequiredArgsConstructor;
 import lombok.var;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author sangeethnawa

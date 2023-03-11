@@ -21,6 +21,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -49,6 +50,7 @@ public class StudentServiceImpl implements StudentService {
         this.jwtService = jwtService;
     }
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @Override
     public ResponseEntity saveStudent(Student student) {
         Student stud = studentRepo.save(student);
